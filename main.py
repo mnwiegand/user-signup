@@ -88,7 +88,7 @@ def sign_up():
         if not 3 <= len(email_py) <= 20:
             ptag_error4_py = ptag_error4_py + "Email must be between 3 and 20 characters. "
         if " " in email_py:
-            ptag_error4_py = ptag_error4_py + "Username may not have any spaces. "
+            ptag_error4_py = ptag_error4_py + "Email may not have any spaces. "
         if ptag_error4_py != "":
             ptag_error4_py= ptag_error4_py + "Although submitting your email is optional, if you decide to submit your email, it must be valid. "
         
