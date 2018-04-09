@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .divs{
+                position: relative;
+                height: 50px;
+            }
+
+            .inputs{
+                position: absolute;
+                left: 120px;
+                top: 0px;
+            }
+
+            .error {
+                color: red;
+                position: absolute;
+                top: -15px;
+                left: 310px;
+            }
+        </style>
+    </head>
+    <header>
+        <h1>
+            Signup
+        </h1>
+    </header>
+    <body>
+        <form action="/user-signup" method="post">
+            <!-- label's 'for' matches input's 'id'-->
+            <div class="divs">
+                <label for="Username">Username</label>
+                <input  class="inputs" id="Username" type="text" name="user_name_entry" value="{{user_val}}"/>
+                <!-- may not be an empty string -->
+                <p class="error">{{ptag_error1_html}}</p>
+            </div>
+            <div class="divs">
+                <label for="Password">Password</label>
+                <input  class="inputs" id="Password" type="password" name="pass_entry1" value=""/>
+                <!-- password may not be an empty string-->
+                <p class="error">{{ptag_error2_html}}</p>
+            </div>
+            <div class="divs">
+                <label for="VerifyPass">Verify Password</label>
+                <input  class="inputs" id="VerifyPass" type="password" name="pass_entry2" value=""/>
+                <!-- verify password may not be an empty string-->
+                <!-- p3_error, pass_entry1 and pass_entry2 must match -->
+                <p class="error">{{ptag_error3_html}}</p>
+            </div>
+            <div class="divs">
+                <label for="Email (optional)">Email Optional</label>
+                <input  class="inputs" id="Email (optional)" type="text" name="email_entry" value="{{email_val}}" />
+                <!-- ok to leave email blank, but if an entry is made, needs to be verified-->
+                <!-- email must have a single '@', a single '.', contain no spaces,
+                    and be between 3 & 20 characters long  -->
+                <p class="error">{{ptag_error4_html}}</p>
+            </div>
+            <div class="divs">
+                <input type="submit"/>
+            </div>
+        </form>
+    </body>
+</html>
