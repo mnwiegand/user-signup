@@ -95,8 +95,8 @@ def sign_up():
     errors = ptag_error1_py + ptag_error2_py + ptag_error3_py + ptag_error4_py
     if errors == "":
         #direct to welcome page displaying "Welcome, [username]!"
-        return render_template('welcome.html', username_html = username)
-        #return redirect("/welcome")
+        #return render_template('welcome.html', username_html = username)
+        return redirect("/welcome?name_passed={0}".format(username))
 
     if errors != "":
         #return redirect("/?error=" + redir_error)
@@ -104,10 +104,10 @@ def sign_up():
             ptag_error2_html = ptag_error2_py, ptag_error3_html = ptag_error3_py,
             ptag_error4_html = ptag_error4_py, user_val = username, email_val = email_py)
 
-#@app.route("/welcome", methods=['POST'])
-#def welcome():
-#    username = "(get username from Sign-Up)"
-#    return render_template('welcome.html', methods = ('post'), username_html = username)
+@app.route("/welcome")
+def welcome():
+    name = request.args.get('name_passed')
+    return render_template('welcome.html', methods = ('post'), username_html = name)
 
 @app.route("/")
 def index():
