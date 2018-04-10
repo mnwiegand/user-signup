@@ -77,7 +77,7 @@ def sign_up():
             ptag_error4_py = ptag_error4_py + "You may only have one '@' in your email. "
 
         if "." not in email_py:
-            ptage_error4_py = ptag_error4_py + "There is no '.' in your email. "
+            ptag_error4_py = ptag_error4_py + "There is no '.' in your email. "
         count = 0
         #it is common for emails to have more than one '.', so consider removing the requirement of a "single '.'"
         for i in email_py:
